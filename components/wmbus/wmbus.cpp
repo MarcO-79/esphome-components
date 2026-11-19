@@ -4,15 +4,6 @@
 namespace esphome {
 namespace wmbus {
 
-inline std::string format_hex_pretty(const std::vector<uint8_t> &data) {
-  if (data.empty())
-    return "";
-  // Każdy bajt zajmuje 2 znaki hex + 1 separator oraz znak końca ciągu
-  std::vector<char> buf(data.size() * 3 + 1);
-  format_hex_pretty_to(buf.data(), buf.size(), data.data(), data.size());
-  return std::string(buf.data());
-}
-
   static const char *TAG = "wmbus";
 
   void WMBusComponent::setup() {
